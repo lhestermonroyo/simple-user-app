@@ -10,9 +10,11 @@ const ListLoading = (props: ListLoadingProps) => {
 
   if (loading) {
     return (
-      <div className="list-loading">
-        <LoadingOutlined className="list-loading-icon" />
-        <p>Loading list, please wait...</p>
+      <div className="users-list">
+        <div className="list-loading">
+          <LoadingOutlined className="list-loading-icon" />
+          <p>Loading list, please wait...</p>
+        </div>
       </div>
     );
   }

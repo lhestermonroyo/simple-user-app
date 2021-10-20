@@ -1,16 +1,26 @@
 import React, { useState, useEffect } from 'react';
+import ListError from '../ListError';
 import ListLoading from '../ListLoading';
 import SearchUser from '../SearchUser';
 import UserDetails from '../UserDetails';
+import ListEmpty from '../ListEmpty';
 
-const UsersList = () => {
+const UsersList: React.FC = () => {
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
-  const [users, setUsers] = useState<[]>([]);
+  const [searchVal, setSearchVal] = useState<string>('');
+  const [users, setUsers] = useState<any[]>([]);
+  const [searchResults, setSearchResults] = useState<any[] | null>(null);
 
   useEffect(() => {
     handleFetchUsers();
   }, []);
+
+  useEffect(() => {
+    if (searchVal) {
+      handleSearch(searchVal);
+    }
+  }, [searchVal]);
 
   const handleFetchUsers = async () => {
     setLoading(true);
@@ -33,24 +43,41 @@ const UsersList = () => {
     setLoading(false);
   };
 
-  if (loading) {
-    return (
-      <div className="users-list">
-        <ListLoading loading={loading} />
-      </div>
+  const handleSearch = (searchVal: string) => {
+    const loweredSearchVal = searchVal.toLowerCase();
+    let results = [];
+
+    results = users.filter(
+      (user) =>
+        user.name.toLocaleLowerCase().includes(loweredSearchVal) ||
+        user.email.toLocaleLowerCase().includes(loweredSearchVal)
     );
+    setSearchResults(results);
+  };
+
+  if (loading) {
+    return <ListLoading loading={loading} />;
   }
 
   if (error) {
+    return <ListError errorMsg={error} />;
   }
 
   return (
     <div className="users-list">
-      <SearchUser />
+      <SearchUser searchVal={searchVal} setSearchVal={setSearchVal} />
+      {searchResults !== null && searchResults.length === 0 && (
+        <ListEmpty searchVal={searchVal} />
+      )}
       <div className="users-list-container">
-        {users.map((user, i) => {
-          return <UserDetails key={i} userDetails={user} />;
-        })}
+        {searchVal.length === 0
+          ? users.map((user, i) => {
+              return <UserDetails key={i} userDetails={user} />;
+            })
+          : searchResults !== null &&
+            searchResults.map((user, i) => {
+              return <UserDetails key={i} userDetails={user} />;
+            })}
       </div>
     </div>
   );
