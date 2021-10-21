@@ -14,13 +14,19 @@ type UserDetailsProps = {
 const UserDetails = (props: UserDetailsProps) => {
   const { userDetails } = props;
   return (
-    <div className="user-details-card">
-      <div className="user-details-action">
-        <a href={`mailto:${userDetails.email}`}>
-          <MailOutlined className="user-details-action-icon" />
+    <div className='user-details-card'>
+      <div className='user-details-action'>
+        <a
+          title={`Send email to ${userDetails.email}`}
+          href={`mailto:${userDetails.email}`}
+        >
+          <MailOutlined className='user-details-action-icon' />
         </a>
-        <a href={`tel:+${userDetails.phone}`}>
-          <PhoneOutlined className="user-details-action-icon" />
+        <a
+          title={`Call ${userDetails.phone}`}
+          href={`tel:+${userDetails.phone}`}
+        >
+          <PhoneOutlined className='user-details-action-icon' />
         </a>
       </div>
       <Avatar name={userDetails.name} />

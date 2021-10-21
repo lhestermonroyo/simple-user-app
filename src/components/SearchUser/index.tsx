@@ -10,12 +10,12 @@ const SearchUser = (props: SearchUserProps) => {
   const { searchVal, setSearchVal } = props;
 
   return (
-    <div className="search">
-      <div className="search-container">
-        <SearchOutlined className="search-icon" />
+    <div className='search'>
+      <div className='search-container'>
+        <SearchOutlined className='search-icon' />
         <input
-          type="search"
-          placeholder="Search user's name or email..."
+          type='search'
+          placeholder="Search user's name, email or username..."
           value={searchVal}
           onChange={(e) => setSearchVal(e.target.value)}
         />

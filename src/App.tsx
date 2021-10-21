@@ -1,14 +1,15 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
 import Header from './components/Header';
 import UsersList from './components/UsersList';
 
-const App = () => {
+const App: React.FC = () => {
+  const [viewType, setViewType] = useState<'Cards' | 'Carousel'>('Cards');
+
   return (
     <div>
-      <Header />
-      <UsersList />
+      <Header viewType={viewType} setViewType={setViewType} />
+      <UsersList viewType={viewType} />
     </div>
   );
 };

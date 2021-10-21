@@ -4,13 +4,20 @@ import ListLoading from '../ListLoading';
 import SearchUser from '../SearchUser';
 import UserDetails from '../UserDetails';
 import ListEmpty from '../ListEmpty';
+import { searchUtil } from '../../utils/searchUtil';
 
-const UsersList: React.FC = () => {
+type UsersListProps = {
+  viewType: 'Cards' | 'Carousel';
+};
+
+const UsersList: React.FC<UsersListProps> = (props: UsersListProps) => {
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
   const [searchVal, setSearchVal] = useState<string>('');
   const [users, setUsers] = useState<any[]>([]);
   const [searchResults, setSearchResults] = useState<any[] | null>(null);
+
+  // const { viewType } = props;
 
   useEffect(() => {
     handleFetchUsers();
@@ -44,14 +51,7 @@ const UsersList: React.FC = () => {
   };
 
   const handleSearch = (searchVal: string) => {
-    const loweredSearchVal = searchVal.toLowerCase();
-    let results = [];
-
-    results = users.filter(
-      (user) =>
-        user.name.toLocaleLowerCase().includes(loweredSearchVal) ||
-        user.email.toLocaleLowerCase().includes(loweredSearchVal)
-    );
+    const results = searchUtil(searchVal, users);
     setSearchResults(results);
   };
 
@@ -64,12 +64,12 @@ const UsersList: React.FC = () => {
   }
 
   return (
-    <div className="users-list">
+    <div className='users-list'>
       <SearchUser searchVal={searchVal} setSearchVal={setSearchVal} />
       {searchResults !== null && searchResults.length === 0 && (
         <ListEmpty searchVal={searchVal} />
       )}
-      <div className="users-list-container">
+      <div className='users-list-container'>
         {searchVal.length === 0
           ? users.map((user, i) => {
               return <UserDetails key={i} userDetails={user} />;
