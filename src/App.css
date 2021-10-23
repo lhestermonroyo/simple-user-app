@@ -22,6 +22,9 @@ span {
 .header {
   background: #2b0a96;
   width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 1;
 }
 
 .header-container {
@@ -55,6 +58,12 @@ span {
 .header-link:focus,
 .header-link:active {
   color: #b19fee;
+}
+
+/* container */
+.container {
+  width: 1140px;
+  margin: auto;
 }
 
 /* list-loading */
@@ -106,9 +115,7 @@ span {
 
 /* users-list */
 .users-list {
-  width: 1140px;
-  margin: auto;
-  margin-top: 2em;
+  margin-top: 7em;
   margin-bottom: 3em;
 }
 
@@ -116,6 +123,39 @@ span {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 1em;
+}
+
+/* users-carousel */
+.users-carousel-container {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.users-carousel-container button {
+  border: none;
+  cursor: pointer;
+}
+
+.left-control {
+  position: absolute;
+  left: 0;
+}
+
+.right-control {
+  position: absolute;
+  right: 0;
+}
+
+.control-icon {
+  font-size: 24px;
+  color: #2b0a96;
+}
+
+.users-carousel-container .user-details-card {
+  min-width: 40vw;
 }
 
 /* user-details */
@@ -193,7 +233,7 @@ span {
     height: 40px;
   }
 
-  .users-list {
+  .container {
     padding: 1em;
     width: 100%;
   }
