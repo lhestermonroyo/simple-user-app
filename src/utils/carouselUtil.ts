@@ -8,7 +8,6 @@ export const carouselUtil = (
   }
 
   if (dir === 'right') {
-    console.log('here', handleRightDir(currentUser, userArrCount));
     return handleRightDir(currentUser, userArrCount);
   }
 };

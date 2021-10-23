@@ -91,17 +91,15 @@ const UsersList: React.FC<UsersListProps> = (props: UsersListProps) => {
     return <ListError errorMsg={error} />;
   }
 
-  console.log(currentUser);
-
   return (
-    <div className="container">
+    <div className='container'>
       {viewType === 'Cards' ? (
-        <div className="users-list">
+        <div className='users-list'>
           <SearchUser searchVal={searchVal} setSearchVal={setSearchVal} />
           {searchResults !== null && searchResults.length === 0 && (
             <ListEmpty searchVal={searchVal} />
           )}
-          <div className="users-list-container">
+          <div className='users-list-container'>
             {searchVal.length === 0
               ? users.map((user, i) => {
                   return <UserDetails key={i} userDetails={user} />;
@@ -113,19 +111,19 @@ const UsersList: React.FC<UsersListProps> = (props: UsersListProps) => {
           </div>
         </div>
       ) : (
-        <div className="users-carousel-container">
+        <div className='users-carousel-container'>
           <button
-            className="left-control"
+            className='left-control'
             onClick={() => handleCarousel('left')}
           >
-            <LeftOutlined className="control-icon" />
+            <LeftOutlined className='control-icon' />
           </button>
           <UserDetails userDetails={users[currentUser]} />
           <button
-            className="right-control"
+            className='right-control'
             onClick={() => handleCarousel('right')}
           >
-            <RightOutlined className="control-icon" />
+            <RightOutlined className='control-icon' />
           </button>
         </div>
       )}

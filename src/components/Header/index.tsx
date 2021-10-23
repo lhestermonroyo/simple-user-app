@@ -8,7 +8,7 @@ type HeaderProps = {
 
 const Header: React.FC<HeaderProps> = (props: HeaderProps) => {
   const { viewType, setViewType } = props;
-  console.log(viewType);
+
   return (
     <div className='header'>
       <div className='header-container'>
