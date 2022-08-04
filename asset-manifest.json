@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/simple-user-app/static/css/main.f55e9aff.chunk.css",
+    "main.js": "/simple-user-app/static/js/main.5db2c49b.chunk.js",
+    "main.js.map": "/simple-user-app/static/js/main.5db2c49b.chunk.js.map",
+    "runtime-main.js": "/simple-user-app/static/js/runtime-main.edca04a9.js",
+    "runtime-main.js.map": "/simple-user-app/static/js/runtime-main.edca04a9.js.map",
+    "static/js/2.d49f1b46.chunk.js": "/simple-user-app/static/js/2.d49f1b46.chunk.js",
+    "static/js/2.d49f1b46.chunk.js.map": "/simple-user-app/static/js/2.d49f1b46.chunk.js.map",
+    "static/js/3.86f59868.chunk.js": "/simple-user-app/static/js/3.86f59868.chunk.js",
+    "static/js/3.86f59868.chunk.js.map": "/simple-user-app/static/js/3.86f59868.chunk.js.map",
+    "index.html": "/simple-user-app/index.html",
+    "static/css/main.f55e9aff.chunk.css.map": "/simple-user-app/static/css/main.f55e9aff.chunk.css.map",
+    "static/js/2.d49f1b46.chunk.js.LICENSE.txt": "/simple-user-app/static/js/2.d49f1b46.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.edca04a9.js",
+    "static/js/2.d49f1b46.chunk.js",
+    "static/css/main.f55e9aff.chunk.css",
+    "static/js/main.5db2c49b.chunk.js"
+  ]
+}
